@@ -1,5 +1,5 @@
 {
-  "name": "balizasv16api",
+  "name": "balizasv16",
   "version": "0.0.3",
   "main": "index.js",
   "type": "module",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShinMugenNoKabe/balizasv16api.git"
+    "url": "git+https://github.com/ShinMugenNoKabe/balizasv16.git"
   },
   "author": "ShinMugenNoKabe",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/ShinMugenNoKabe/balizasv16api/issues"
+    "url": "https://github.com/ShinMugenNoKabe/balizasv16/issues"
   },
-  "homepage": "https://github.com/ShinMugenNoKabe/balizasv16api#readme",
+  "homepage": "https://github.com/ShinMugenNoKabe/balizasv16#readme",
   "description": "",
   "dependencies": {
     "@fastify/static": "9.0.0",

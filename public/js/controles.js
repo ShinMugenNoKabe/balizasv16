@@ -1,6 +1,6 @@
 import { clearTimeoutRefrescado, limpiarMapa, mostrarBalizasEnMapa } from "/public/js/mapa.js";
 
-const ENLACE_GITHUB = "https://github.com/ShinMugenNoKabe/balizasv16api";
+const ENLACE_GITHUB = "https://github.com/ShinMugenNoKabe/balizasv16";
 const ENLACE_TWITTER = "https://twitter.com/Muralla1nfinita";
 const ENLACE_SWAGGER = "/api/v1/docs";
 
