@@ -98,13 +98,11 @@ const inicializarDatosCacheados = () => {
 }
 
 const mapearIncidenciaBalizaADatosBaliza = (incidenciaBalizaDgt) => {
-    const datosGeometria = JSON.parse(incidenciaBalizaDgt.geometria);
-    const [longitud, latitud] = datosGeometria.coordinates;
-
     const idBaliza = incidenciaBalizaDgt.id;
     const datosExistentesBalizaV16 = datosBalizasV16Cacheados.balizas[idBaliza];
 
     const fechaUltimaActualizacion = datosBalizasV16Cacheados.fechas.realizadaPeticionEn;
+    const { latitud, longitud } = parsearDatosGeometria(incidenciaBalizaDgt);
 
     const datosBalizaV16Mapeados = {
         identificadores: {
@@ -141,6 +139,25 @@ const mapearIncidenciaBalizaADatosBaliza = (incidenciaBalizaDgt) => {
     }
 
     return datosBalizaV16Mapeados;
+}
+
+const parsearDatosGeometria = (incidenciaBalizaDgt) => {
+    const datosGeometria = JSON.parse(incidenciaBalizaDgt.geometria);
+
+    let latitud = null;
+    let longitud = null;
+
+    if (datosGeometria.type === "MultiPoint") {
+        const coordenadas = datosGeometria.coordinates[datosGeometria.coordinates.length - 1];
+        [longitud, latitud] = coordenadas;
+    } else {
+        [longitud, latitud] = datosGeometria.coordinates;
+    }
+
+    return {
+        latitud,
+        longitud,
+    }
 }
 
 const actualizarDatosInactivos = (idsBalizasActivas) =>  {
