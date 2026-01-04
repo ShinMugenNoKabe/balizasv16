@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Roboto", "sans-serif";
+}
+
+body {
+    margin: 0;
+}
+
+#map {
+    height: 100vh;
+}
+
+.popupBalizaHeader {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 0.4em;
+}
+
+.popupBalizaHeaderVerde {
+    color: #2E7D32;
+}
+
+.popupBalizaHeaderRojo {
+    color: #C62828;
+}
+
+.popupTable {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1em;
+}
+
+.popupVia {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 0.4em;
+}
+
+.popupCoordenadas {
+    color: mediumblue;
+}
+
+.popupMapas div {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.4em;
+}
+
+.popupMapas a {
+    font-weight: bold;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.popupMapaItem a:hover {
+    text-decoration: underline;
+}
+
+.textoPuntos {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+.iconoEnlace {
+    width: 5em;
+    height: 5em;
+    border-radius: 20px;
+}
+
+.botonRefrescar {
+    font-size: 1.3em;
+}
+
+@media (max-width: 600px) {
+    .popupTableHeader {
+        font-size: 1em;
+    }
+
+    .popupVia {
+        font-size: 1em;
+    }
+
+    .popupTable {
+        font-size: 0.9em;
+    }
+
+    .popupMapas a {
+        font-size: 0.9em;
+    }
+
+    .botonRefrescar {
+        font-size: 1em;
+    }
+
+    .iconoEnlace {
+        width: 4em;
+        height: 4em;
+    }
+}
