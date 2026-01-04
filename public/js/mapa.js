@@ -33,7 +33,7 @@ const inicializarControles = () => {
     const swaggerControl = new SwaggerControl();
 
     map.addControl(refrescarMapaControl);
-    map.addControl(twitterControl);
+    //map.addControl(twitterControl);
     map.addControl(swaggerControl);
     map.addControl(githubControl);
 }
