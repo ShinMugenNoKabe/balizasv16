@@ -99,4 +99,8 @@ body {
         width: 4em;
         height: 4em;
     }
+
+    .leaflet-bottom {
+        margin-bottom: 3em;
+    }
 }
