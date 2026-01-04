@@ -1,4 +1,4 @@
-import { clearTimeoutRefrescado, limpiarMapa, mostrarBalizasEnMapa } from "/static/js/mapa.js";
+import { clearTimeoutRefrescado, limpiarMapa, mostrarBalizasEnMapa } from "/public/js/mapa.js";
 
 const ENLACE_GITHUB = "https://github.com/ShinMugenNoKabe/balizasv16api";
 const ENLACE_TWITTER = "https://twitter.com/Muralla1nfinita";
@@ -14,7 +14,7 @@ const GitHubRepositorioControl = L.Control.extend({
 
         div.innerHTML = `
             <a href="${ENLACE_GITHUB}" target="_blank" title="Somos Open Source!">
-                <img src="/static/images/logo_github_min.png" class="iconoEnlace" alt="Repositorio de GitHub" />
+                <img src="/public/images/logo_github_min.png" class="iconoEnlace" alt="Repositorio de GitHub" />
             </a>
         `;
 
@@ -32,7 +32,7 @@ const TwitterControl = L.Control.extend({
 
         div.innerHTML = `
             <a href="${ENLACE_TWITTER}" target="_blank" title="Mi Twitter!">
-                <img src="/static/images/logo_twitter_min.png" class="iconoEnlace" alt="Mi Twitter" />
+                <img src="/public/images/logo_twitter_min.png" class="iconoEnlace" alt="Mi Twitter" />
             </a>
         `;
 
@@ -50,7 +50,7 @@ const SwaggerControl = L.Control.extend({
 
         div.innerHTML = `
             <a href="${ENLACE_SWAGGER}" target="_blank" title="Documentación de la API gratuita!">
-                <img src="/static/images/logo_swagger_min.png" class="iconoEnlace" alt="Documentación de la API gratuita" />
+                <img src="/public/images/logo_swagger_min.png" class="iconoEnlace" alt="Documentación de la API gratuita" />
             </a>
         `;
 

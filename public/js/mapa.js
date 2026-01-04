@@ -1,5 +1,5 @@
-import { GitHubRepositorioControl, TwitterControl, SwaggerControl, RefrescarMapaControl } from "/static/js/controles.js";
-import { capitalizarTexto } from "/static/js/utils.js";
+import { GitHubRepositorioControl, TwitterControl, SwaggerControl, RefrescarMapaControl } from "/public/js/controles.js";
+import { capitalizarTexto } from "/public/js/utils.js";
 
 const TIEMPO_DE_REFRESCO_MS = 2_000 * 60;
 
@@ -61,11 +61,11 @@ const mostrarBalizasEnMapa = async () => {
     });
 
     const iconoBalizaEncendida = new IconoBaliza({
-        iconUrl: "/static/images/baliza_encendida_min.png",
+        iconUrl: "/public/images/baliza_encendida_min.png",
     });
 
     const iconoBalizaApagada = new IconoBaliza({
-        iconUrl: "/static/images/baliza_apagada_min.png",
+        iconUrl: "/public/images/baliza_apagada_min.png",
     });
 
     comunidadesLayerGroups = {};
