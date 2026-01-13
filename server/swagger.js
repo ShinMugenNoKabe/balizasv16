@@ -8,7 +8,7 @@ const registrarInfoSwagger = (fastify) => {
             info: {
                 title: "API REST de Balizas V16 en España",
                 description: "API REST de Balizas V16 en España, en tiempo real; de uso completamente gratuito.",
-                version: "0.1.2",
+                version: "0.1.3",
                 contact: {
                     name: "ShinMugenNoKabe",
                     url: "https://github.com/ShinMugenNoKabe",

@@ -1,5 +1,5 @@
 import { parsearNombreComunidadAutonoma, parsearRespuestaBase64, parsearDatosGeometria } from "../utils/balizasV16utils.js";
-import { calcularFechaHaceUnaHora } from "../utils/utils.js";
+import { calcularFechaHaceUnaHora, setearOffsetEnFechaLocal } from "../utils/utils.js";
 
 const DGT_INCIDENCIAS_API_URL = "https://etraffic.dgt.es/etrafficWEB/api/cache/getFilteredData";
 const DGT_FUENTE_INCIDENCIAS_BALIZAS_V16 = "DGT3.0";
@@ -130,7 +130,7 @@ const mapearIncidenciaBalizaADatosBaliza = (incidenciaBalizaDgt) => {
             orientacion: MAPEO_ORIENTACIONES_DGT[incidenciaBalizaDgt.orientacion] ?? null,
         },
         fechas: {
-            activadaEn: new Date(incidenciaBalizaDgt.fechaInicio),
+            activadaEn: setearOffsetEnFechaLocal(incidenciaBalizaDgt.fechaInicio, fechaUltimaActualizacion),
             primeraVezVistaEn: datosExistentesBalizaV16
                 ? datosExistentesBalizaV16.fechas.primeraVezVistaEn
                 : fechaUltimaActualizacion,
