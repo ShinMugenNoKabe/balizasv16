@@ -1,4 +1,4 @@
-import { getDatosBalizasV16 } from "../services/balizasV16service.js";
+import { getDatosCacheadosBalizasV16 } from "../services/balizasV16service.js";
 
 const balizasV16Register = (fastify, opts, done) => {
     fastify.get("/",
@@ -30,7 +30,7 @@ const balizasV16Register = (fastify, opts, done) => {
         },
         async (req, reply) => {
             try {
-                const datosBalizasV16 = await getDatosBalizasV16();
+                const datosBalizasV16 = await getDatosCacheadosBalizasV16();
                 return reply.send(datosBalizasV16);
             } catch (err) {
                 reply.code(500);
