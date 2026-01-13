@@ -1,3 +1,4 @@
+import Fastify from "fastify";
 import fastify from "./server/server.js";
 
 fastify.listen({
