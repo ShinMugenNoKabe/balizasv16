@@ -6,7 +6,7 @@ const balizasV16Register = (fastify, opts, done) => {
             schema: {
                 description: `
                     Este endpoint se usa para obtener los datos en tiempo real de las Balizas V16 en España.
-                    Utiliza la API pública de incidencias de la DGT 3.0.
+                    Utiliza la API pública de incidencias de la DGT 3.0. Se hacen peticiones a esta API cada 30 segundos de forma automática.
                     Todas las balizas se cachean durante 1 hora. Si no se reciben actualizaciones, se marcan como inactivas.
                     Las balizas se eliminan de la caché si tras pasada 1 hora no se reciben datos.
                 `,
@@ -20,6 +20,11 @@ const balizasV16Register = (fastify, opts, done) => {
                         type: "object",
                         "$ref": "RespuestaBalizasV16",
                     },
+                    429: {
+                        description: "Error al realizar demasiadas peticiones",
+                        type: "object",
+                        "$ref": "RespuestaError",
+                    },
                     500: {
                         description: "Error al recibir los datos",
                         type: "object",
@@ -27,6 +32,11 @@ const balizasV16Register = (fastify, opts, done) => {
                     },
                 },
             },
+            config: {
+                rateLimit: {
+                    // Dejar vacío para utilizar la configuración global definida
+                },
+            }
         },
         async (req, reply) => {
             try {

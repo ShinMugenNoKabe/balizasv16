@@ -204,6 +204,7 @@ const getDatosBalizasV16Cacheados = () => {
 }
 
 export {
+    TIEMPO_SEGUNDOS_PETICION_CACHE,
     realizarPeticionDatosBalizasV16,
     getDatosBalizasV16Cacheados,
 }
