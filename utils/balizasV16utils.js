@@ -20,7 +20,27 @@ const parsearNombreComunidadAutonoma = (comunidad) => {
     return `${comunidadSplit[1]} ${comunidadSplit[0]}`;
 }
 
+const parsearDatosGeometria = (incidenciaBalizaDgt) => {
+    const datosGeometria = JSON.parse(incidenciaBalizaDgt.geometria);
+
+    let latitud = null;
+    let longitud = null;
+
+    if (datosGeometria.type === "MultiPoint") {
+        const coordenadas = datosGeometria.coordinates[datosGeometria.coordinates.length - 1];
+        [longitud, latitud] = coordenadas;
+    } else {
+        [longitud, latitud] = datosGeometria.coordinates;
+    }
+
+    return {
+        latitud,
+        longitud,
+    }
+}
+
 export {
     parsearRespuestaBase64,
     parsearNombreComunidadAutonoma,
+    parsearDatosGeometria,
 }

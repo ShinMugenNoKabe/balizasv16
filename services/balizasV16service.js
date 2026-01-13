@@ -1,4 +1,4 @@
-import { parsearNombreComunidadAutonoma, parsearRespuestaBase64 } from "../utils/balizasV16utils.js";
+import { parsearNombreComunidadAutonoma, parsearRespuestaBase64, parsearDatosGeometria } from "../utils/balizasV16utils.js";
 import { calcularFechaHaceUnaHora } from "../utils/utils.js";
 
 const DGT_INCIDENCIAS_API_URL = "https://etraffic.dgt.es/etrafficWEB/api/cache/getFilteredData";
@@ -141,27 +141,8 @@ const mapearIncidenciaBalizaADatosBaliza = (incidenciaBalizaDgt) => {
     return datosBalizaV16Mapeados;
 }
 
-const parsearDatosGeometria = (incidenciaBalizaDgt) => {
-    const datosGeometria = JSON.parse(incidenciaBalizaDgt.geometria);
-
-    let latitud = null;
-    let longitud = null;
-
-    if (datosGeometria.type === "MultiPoint") {
-        const coordenadas = datosGeometria.coordinates[datosGeometria.coordinates.length - 1];
-        [longitud, latitud] = coordenadas;
-    } else {
-        [longitud, latitud] = datosGeometria.coordinates;
-    }
-
-    return {
-        latitud,
-        longitud,
-    }
-}
-
 const actualizarDatosInactivos = (idsBalizasActivas) =>  {
-    const idsBalizasInactivas = new Set();
+    const idsBalizasCaducadas = new Set();
 
     const fechaUltimaActualizacion = datosBalizasV16Cacheados.fechas.realizadaPeticionEn;
     const fechaHaceUnaHora = calcularFechaHaceUnaHora(fechaUltimaActualizacion);
@@ -172,11 +153,12 @@ const actualizarDatosInactivos = (idsBalizasActivas) =>  {
         }
         
         if (balizaEstaCaducada(datosBaliza, fechaHaceUnaHora)) {
-            idsBalizasInactivas.add(idBaliza);
+            idsBalizasCaducadas.add(idBaliza);
         }
     });
 
-    idsBalizasInactivas.forEach(idBaliza => {
+    // Quitamos de la caché las balizas de las cuales no hemos recibido datos
+    idsBalizasCaducadas.forEach(idBaliza => {
         delete datosBalizasV16Cacheados.balizas[idBaliza];
     });
 }
