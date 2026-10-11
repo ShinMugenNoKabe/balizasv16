@@ -1,5 +1,6 @@
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
+import projectPackage from "../package.json" with { type: "json" };
 
 const registrarInfoSwagger = (fastify) => {
     fastify.register(fastifySwagger, {
@@ -8,7 +9,7 @@ const registrarInfoSwagger = (fastify) => {
             info: {
                 title: "API REST de Balizas V16 en España",
                 description: "API REST de Balizas V16 en España, en tiempo real; de uso completamente gratuito.",
-                version: "0.3.0",
+                version: projectPackage.version,
                 contact: {
                     name: "ShinMugenNoKabe",
                     url: "https://github.com/ShinMugenNoKabe",

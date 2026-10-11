@@ -1,4 +1,4 @@
-const parsearRespuestaBase64 = (base64String, a = "K") =>  {
+const parsearRespuestaBase64 = (base64String, a = "function{var ent3}") =>  {
     const i = a.charCodeAt(0)
       , t = atob(base64String)
       , r = new Uint8Array(t.length);
